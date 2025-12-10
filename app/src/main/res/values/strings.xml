@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">TipTime-Pos-moveis-2025</string>
+    <string name="cost_of_service">cost_of_service</string>
+    <string name="how_was_the_service">how_was_the_service</string>
+    <string name="amazing_20">amazing_20</string>
+    <string name="good_18">good_18</string>
+    <string name="okay_15">okay_15</string>
+    <string name="round_up_tip">round_up_tip</string>
+    <string name="calculate">calculate</string>
+    <string name="tip_amount">tip_amount</string>
 </resources>
