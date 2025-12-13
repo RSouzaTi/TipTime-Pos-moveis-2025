@@ -1,6 +1,7 @@
 package br.edu.utfpr.tiptime_pos_moveis_2025
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -8,7 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import br.edu.utfpr.tiptime_pos_moveis_2025.databinding.ActivityMainBinding
 import java.text.NumberFormat
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {//Fim do MainActivity
 
     private lateinit var binding: ActivityMainBinding
 
@@ -29,11 +30,65 @@ class MainActivity : AppCompatActivity() {
         binding.calculateButton.setOnClickListener {
             calculateTip()
         }
+        if (savedInstanceState != null) {
+            binding.tipResult.text = savedInstanceState.getString("cost_of_tip")
+        } else {
+            val formattedTip = NumberFormat.getCurrencyInstance().format(0)
+            binding.tipResult.text = getString(R.string.tip_amount, formattedTip)
+                    }
+        println("onCreate() executado")
 
-        val formattedTip = NumberFormat.getCurrencyInstance().format(0)
-        binding.tipResult.text = getString(R.string.tip_amount, formattedTip)
+        Log.d("MainActivity", "onCreate() executado")
+        Log.w("MainActivity", "onCreate() executado")
+        Log.i("MainActivity", "onCreate() executado")
+        Log.v("MainActivity", "onCreate() executado")
+        Log.wtf("MainActivity", "onCreate() executado")
+        Log.e("MainActivity", "onCreate() executado")
+
+
+
+
 
     } //fim do onCreate()
+
+
+    override fun onStart() {
+        super.onStart()
+        println("onStart() executado")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        println("onResume() executado")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        println("onPause() executado")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        println("onStop() executado")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        println("onDestroy() executado")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        println("onRestart() executado")
+    }
+
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        outState.putString("cost_of_tip", binding.tipResult.text.toString())
+
+    }
 
     private fun calculateTip() {
 
@@ -62,4 +117,5 @@ class MainActivity : AppCompatActivity() {
         binding.tipResult.text = getString(R.string.tip_amount, formattedTip)
     }
 
-}//Fim do MainActivity
+
+}
